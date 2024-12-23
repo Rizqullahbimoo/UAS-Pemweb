@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulir Kroos Academy</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid">
+        <header class="bg-dark text-white text-center py-3">
+            <h1>Formulir Kroos Academy</h1>
+            <img src="logo.png" alt="Logo Idola Saya" class="img-fluid">
+        </header>
+        
+        <div class="row">
+            <aside class="col-12 col-sm-4 col-md-3 bg-light p-3">
+                <h2 class="h5">Menu</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="index.html">Halaman Utama</a></li>
+                    <li class="list-group-item"><a href="form.html">Formulir</a></li>
+                    <li class="list-group-item"><a href="table.php">Tabel Data</a></li>
+                </ul>
+            </aside>
+
+            <main class="col-12 col-sm-8 col-md-9 py-3">
+                <form id="userForm" action="./form.php" method="POST" class="needs-validation" novalidate itemscope itemtype="http://schema.org/Person">
+                    <div class="form-group">
+                        <label for="name" itemprop="name">Nama:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                        <div class="invalid-feedback">Nama wajib diisi.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" itemprop="email">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="invalid-feedback">Email wajib diisi.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob" itemprop="birthDate">Tanggal Lahir:</label>
+                        <input type="date" id="dob" name="dob" class="form-control" required>
+                        <div class="invalid-feedback">Tanggal lahir wajib diisi.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="favoritePlayer">Pemain Favorit:</label>
+                        <input type="text" id="favoritePlayer" name="favoritePlayer" class="form-control" required>
+                        <div class="invalid-feedback">Pemain favorit wajib diisi.</div>
+                    </div>
+                    
+                    <label>Posisi:</label>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="radio" id="midfielder" name="position" value="Midfielder" class="form-check-input" required>
+                            <label for="midfielder" class="form-check-label">Gelandang</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="forward" name="position" value="Forward" class="form-check-input">
+                            <label for="forward" class="form-check-label">Penyerang</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="defender" name="position" value="Defender" class="form-check-input">
+                            <label for="defender" class="form-check-label">Belakang</label>
+                        </div>
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </form>
+                <script src="./form.js"></script>
+            </main>
+        </div>
+        
+        <footer class="bg-dark text-white text-center py-3 mt-auto">
+            <p>&copy; Toni Kroos Academy Copyright.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Bootstrap form validation script
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>
